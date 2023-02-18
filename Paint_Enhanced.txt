@@ -1,0 +1,99 @@
+import java.util.Scanner;
+
+public class Paint2 {
+
+    public static void main(String[] args) {
+
+        Scanner scnr = new Scanner(System.in);
+        double wallHeight = 0.0;
+        double wallWidth = 0.0;
+        double wallArea = 0.0;
+	    double trimLinearFeet = 0.0;
+	    double wallLengthTrim = 0.0;
+	    double wallWidthTrim = 0.0;
+	    double doorHeight = 0.0;
+	    double doorWidth = 0.0;
+	    double doorArea = 0.0;
+	    double trimDoorPaint = 0.0;
+	    double windowHeight = 0.0;
+	    double windowWidth = 0.0;
+	    double windowArea = 0.0;
+      	int userAnswer;
+        double gallonsPaintNeeded = 0.0;
+        double cansNeeded;
+	   
+
+        final double squareFeetPerGallons = 350.0;
+        final double gallonsPerCan = 1.0;
+
+        System.out.println("Lets Calculate how much paint we need. ");
+        System.out.println("First lets calculate the wall area.\n ");
+        
+        // Prompt user to input wall's height
+        System.out.println("Enter wall height (feet): ");
+        wallHeight = scnr.nextDouble();
+
+
+        // Prompt user to input wall's width
+        System.out.println("Enter wall width (feet): ");
+        wallWidth = scnr.nextDouble();
+
+        // Calculate and output wall area
+        wallArea = (wallHeight * wallWidth);
+        System.out.println("Wall area: "  + wallArea + " square feet.\n ");
+        
+        System.out.println("Now lets calculate how much trim we need. ");
+
+        //Prompt User to Calculate Trim. To calculate trim take the width and length of the room and times each number by two. Then add them together to get the amount of linear feet needed.
+        System.out.println("Enter room length (feet): ");
+        wallLengthTrim = scnr.nextDouble();
+        
+        System.out.println("Enter room width (feet): ");
+        wallWidthTrim = scnr.nextDouble();
+        
+        trimLinearFeet = ((wallLengthTrim*2) + (wallWidthTrim*2));
+        System.out.println("Amount of trim needed is: " + trimLinearFeet + " linear feet.\n ");
+        
+        System.out.println("Now lets calculate the door area. ");
+	   
+    	
+    	//Prompt User to input door Height
+    	System.out.println("Enter door height (feet): ");
+    	doorHeight = scnr.nextDouble();
+    	
+    	//Prompt User to input door width
+    	System.out.println("Enter door width (feet): ");
+    	doorWidth = scnr.nextDouble();
+    	
+    	//Calculate and output door area
+    	doorArea = (doorHeight * doorWidth);
+    	System.out.println("Door area: " + doorArea + " square feet.\n ");
+    	
+    	//Ask user if the doors and trim will be the same color as the wall
+    	System.out.println("Will the door and trim be the same color as the wall? If YES press 1. If NO press 2.\n ");
+   		userAnswer = scnr.nextInt(); 	
+   
+      	if (userAnswer == 1) 
+        {
+        	// Calculate and output the amount of paint in gallons needed to paint the wall
+        	gallonsPaintNeeded = ((wallArea + trimLinearFeet + doorArea) / squareFeetPerGallons);
+        }
+      	else 
+        {
+			gallonsPaintNeeded = ((wallArea - (trimLinearFeet + doorArea)) / squareFeetPerGallons);
+			trimDoorPaint = ((trimLinearFeet + doorArea) / squareFeetPerGallons);
+			
+			System.out.printf("Paint needed for trim and door: %.2f" , trimDoorPaint , " gallons.");
+       	}
+
+      								   
+        System.out.printf("\nPaint needed for wall: %.2f gallons.\n ", gallonsPaintNeeded);
+      
+        // Calculate and output the number of paint cans needed to paint the wall,
+        // Complete this code block
+        cansNeeded = (gallonsPaintNeeded / gallonsPerCan);
+        System.out.printf("Paint needed: %.2f gallons. ",  gallonsPaintNeeded);
+       //This is my code block above.
+        
+}
+}
