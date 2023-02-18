@@ -1,0 +1,124 @@
+import java.util.Scanner;
+
+public class CheckIn {
+
+public static void main(String[] args) {
+        
+    String Username;
+    String Password;
+    
+    
+
+    Password = "1234";
+    Username = "Chadharris86";
+
+    Scanner input1 = new Scanner(System.in);
+    System.out.println("Enter Username: ");
+    String username = input1.next();
+
+    Scanner input2 = new Scanner(System.in);
+    System.out.println("Enter Password: ");
+    String password = input2.next();
+    
+    while (!username.equals(Username) || (!password.equals(Password))){
+           System.out.println("Please re-enter username or password. ");
+           
+    System.out.println("Enter Username: ");
+    username = input1.next();
+    
+    System.out.println("Enter Password: ");
+    password = input2.next();
+       
+  // ask again for input
+           }
+      
+    
+    // if the program reaches this point we already know that there was a match 
+     System.out.println("Access Granted! Welcome to the Pet Hotel Check In Service. ");  
+     
+        Scanner scanner = new Scanner(System.in);
+        Scanner scannerLine = new Scanner(System.in);
+
+        String animalType;
+        String animalBreed;
+        String hairCutAnswer;
+        String bathWashAnswer;
+        String animalName;
+        double animalWeight = 0;
+        int nightlyStay = 0;
+        double totalStayFee;
+        double grandTotal;
+        double nightlyFee;
+        double hairCutFee;
+        double animalWashFee;
+
+        nightlyFee = 80.00;
+        hairCutFee = 30.00;
+        animalWashFee = 40.00;
+        
+        //Prompt User to enter pet type
+        System.out.println("Please enter pet type: ");
+
+        animalType = scannerLine.nextLine();
+        
+        //Prompt User to enter pet breed
+        System.out.println("Please enter pet breed: ");
+        animalBreed = scannerLine.nextLine();
+        
+        //Prompt User for animal name
+        System.out.println("Please enter pet name: ");
+        animalName = scannerLine.nextLine();
+        
+        
+        //Prompt User to enter pet weight in lbs
+        System.out.println("Please enter pet weight in pounds: ");
+        animalWeight = scanner.nextDouble();
+        
+        //Ask user how many nights they want their pet to stay 
+        System.out.println("How many nights do you want your pet to stay? ");
+        nightlyStay = scanner.nextInt();
+        totalStayFee = nightlyStay * nightlyFee;
+
+        if (nightlyStay > 0) {
+            System.out.println("The total nightly fee for your pet is: $" + totalStayFee);
+
+        } else {
+            System.out.println("You will only be charged for one night: ");
+        }
+
+        //Ask user if they want their animal to have a hair cut during their stay
+        System.out.println("Do you want your " + animalType + " to have a hair cut? ");
+        hairCutAnswer = scannerLine.nextLine();
+
+        //Ask user if they want to their animal to have a bath during their stay
+        System.out.println("Do you want your " + animalType + " to have a bath during their stay? ");
+        bathWashAnswer = scannerLine.nextLine();
+        grandTotal = totalStayFee;
+        
+        //This equation calculates total for each scenario for the answer they get to the questions above. 
+        if (hairCutAnswer.equals("Yes")) {
+            grandTotal += hairCutFee;
+        }
+        if (bathWashAnswer.equals("Yes")) {
+            grandTotal += animalWashFee;
+        }
+ //else {
+ //       System.out.println("Invalid Username or Password. ");
+ //     }
+
+        //Display final information
+        System.out.println("Your pet is a: " + animalType);
+        System.out.println("Your " + animalType  + " is a: " + animalBreed);
+        System.out.println("Your " + animalType + "'s" + " name is: " + animalName);
+        System.out.println("Your " + animalType + "'s" + " weight is: " + animalWeight + " .lbs");
+        System.out.println("The total for your pet's stay is: $" + grandTotal);
+        System.out.println("Thank you for choosing our hotel for your pet. ");  
+    }
+     
+      
+
+
+    }
+   
+
+    
