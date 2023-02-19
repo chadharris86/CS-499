@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class CheckIn {
+
+public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        Scanner scannerLine = new Scanner(System.in);
+
+        String animalType;
+        String animalBreed;
+        String hairCutAnswer;
+        String bathWashAnswer;
+        double animalWeight;
+        int nightlyStay = 0;
+        double totalStayFee;
+        double grandTotal = 0;
+        double nightlyFee;
+        double hairCutFee;
+        double animalWashFee;
+
+        nightlyFee = 40.00;
+        hairCutFee = 30.00;
+        animalWashFee = 40.00;
+
+        System.out.println("Please enter pet type: ");
+
+        animalType = scannerLine.nextLine();
+
+        System.out.println("Please enter pet breed: ");
+
+        animalBreed = scannerLine.nextLine();
+
+        System.out.println("Please enter pet weight in pounds: ");
+        animalWeight = scanner.nextDouble();
+
+        System.out.println("How many nights do you want your pet to stay? ");
+        nightlyStay = scanner.nextInt();
+        totalStayFee = nightlyStay * nightlyFee;
+
+        if (nightlyStay > 0) {
+            System.out.println("Your fee for your pet is: " + totalStayFee);
+
+        } else {
+            System.out.println("You will only be charged for one night: ");
+        }
+
+        System.out.println("Do you want your " + animalType + " to have a hair cut? ");
+        hairCutAnswer = scannerLine.nextLine();
+
+        System.out.println("Do you want your " + animalType + " to have a bath during their stay? ");
+        bathWashAnswer = scannerLine.nextLine();
+        grandTotal = totalStayFee;
+
+        if (hairCutAnswer.equals("Yes")) {
+            grandTotal += hairCutFee;
+        }
+        if (bathWashAnswer.equals("Yes")) {
+            grandTotal += animalWashFee;
+        }
+
+        System.out.println("The total for your pet is: " + grandTotal);
+
+        System.out.println("Thank you for choosing our hotel for your pet. ");
+
+    }
+}
+    
