@@ -1,0 +1,65 @@
+--create database for petbag hotel
+CREATE DATABASE PetBag;
+
+--check to make sure database PetBag was entered in correctly
+SHOW DATABASES;
+
+--Create Table for PetBag Customers
+CREATE TABLE Customers (
+	CustomerID Int,
+	LastName varchar(255),
+	FirstName varchar(255),
+	Address varchar(255),
+	City varchar(255),
+	PhoneNumber Int(10),
+);
+
+--Create Table for PetBag animals
+CREATE TABLE Animals (
+	AnimalID Int,
+	AnimalType varchar(255),
+	AnimalBreed varchar(255),
+	AnimalAge Int,
+);
+
+
+--Step One: Alter Table 
+ALTER TABLE Customers (
+	ADD Email varchar(255)
+);
+
+--Step Two: Update Records in the Customer Table
+UPDATE Customers (
+SET Email = 'chadharris86@gmail.com'
+WHERE CustomerID = 1;
+)
+
+--Step Three: Update Remaining Records in the Customer Table
+UPDATE Customers (
+SET Address = '444 Sweetwater Rd'
+WHERE PhoneNumber = 2084214643
+);
+
+--Step Four: Insert Records into Animals Table
+INSERT INTO Animals (AnimalID, AnimalType, Animal Breed, AnimalAge)
+VALUES(001, Dog, Black Lab, 2);
+
+INSERT INTO Customers (CustomerID, LastName, FirstName, Address, City, PhoneNumber)
+VALUES (001, Harris, Chad, 444 Sweetwater Rd, Boise, 2084214333);
+
+INSERT INTO Customers (CustomerID, LastName, FirstName Address, City, PhoneNumber)
+VALUES (002, Harris, Reed, 333 Blue Lakes Blvd., Twin Falls, 2083332323);
+
+--Step Five: Delete Records From a Table
+DELET FROM Customers WHERE CustomerID = '002';
+
+--Step Six: Add state column to customers table
+ALTER TABLE Customers (
+	ADD State varchar(255)
+);
+
+--Step Seven: Update Customers records to assign state residence
+UPDATE Customers (
+SET State = 'Idaho'
+WHERE CustomerID = 001
+);
